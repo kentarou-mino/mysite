@@ -4,26 +4,34 @@ public class FinallySample {
 
 	public static void main(String[] args) {
 
-		String test = check();
+		String test = new FinallySample().check();
 		System.out.println(test);
 
 	}
 
-	private static String check() {
+	private String check() {
 
+		System.out.println("start");
 		try {
-			throw new Exception();
+			//throw new Exception();
+			System.out.println("try");
+			checkTest();
+		} catch (NullPointerException e) {
+			System.out.println("catch");
+			System.out.println("NullPointerException");
+			return "catch";
 		} catch (Exception e) {
-			return null;
+			System.out.println("catch");
+			System.out.println("Exception");
+			return "catch";
 		} finally {
 			System.out.println("finally");
-			//return  "(`・ω・)b" ;
 		}
-
+		return "end";
 	}
 
-	public static void checkTest() throws NullPointerException {
+	void checkTest() throws NullPointerException {
 
-				throw new NullPointerException();
+		throw new NullPointerException();
 	}
 }
