@@ -20,10 +20,18 @@ public class FinallySampleTest {
 	public void test2() {
 		try {
 			FinallySample target = new FinallySample();
-			Class<FinallySample> clazz = (Class<FinallySample>) target.getClass(); // class は予約語なので慣例的に clazz や klass などにする
-			Method method = clazz.getDeclaredMethod("check", null); // 第二引数は呼び出すメソッドの引数の型の配列。無いときは null にする
-			method.setAccessible(true); // 見えないはずのメソッドを見えるようにする魔法のメソッド
-			String result = (String) method.invoke(target, null); // 第一引数にメソッドを呼び出すインスタンス、第二引数以後は実際の引数
+			// class は予約語なので慣例的に clazz や klass などにする
+			Class<FinallySample> clazz = (Class<FinallySample>) target.getClass();
+
+			// 第二引数は呼び出すメソッドの引数の型の配列。無いときは null にする
+			Method method = clazz.getDeclaredMethod("check", null);
+
+			// 見えないはずのメソッドを見えるようにする魔法のメソッド
+			method.setAccessible(true);
+
+			// 第一引数にメソッドを呼び出すインスタンス、第二引数以後は実際の引数
+			String result = (String) method.invoke(target, null);
+
 			System.out.println(result);
 		} catch (IllegalAccessException e) {
 			// TODO 自動生成された catch ブロック
