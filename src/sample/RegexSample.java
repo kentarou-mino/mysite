@@ -27,7 +27,7 @@ public class RegexSample {
 	//	空白を許容しない正規表現
 	private static final String notPermmitSpace = "^[0-9]+$";
 	//	空白を許容
-	private static final String permmitSpace = "^[0-9]*$";
+	//	private static final String permmitSpace = "^[0-9]*$";
 	//正規表現のオブジェクト化
 	private static final Pattern pattern = Pattern.compile(notPermmitSpace);
 
